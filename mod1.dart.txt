@@ -1,0 +1,66 @@
+//Encapsulation is demonstrated
+//since attributes and methods are 
+//grouped within the class.
+class Tools {
+  String name;
+  int health;
+
+  isBroken() {
+    print("Health: " + this.health.toString());
+    if (this.health == 0) {
+      print(name + " is broken.");
+    } else {
+      print(name + " is not broken.");
+    }
+  }
+
+  breakBlock() {
+    print(name + " is breaking block.");
+    this.health -= 1;
+  }
+
+  hitEnemy() {
+    print(name + " is hitting enemy.");
+    this.health -= 1;
+  }
+
+  Tools(this.name, this.health);
+}
+
+
+//Inheritance is demonstrated here
+//by inheriting attributes and methods from the 
+//parent class.
+class Pickaxe extends Tools {
+  Pickaxe(String name, int health) : super(name, health);
+}
+
+
+//Polymorphism is demonstated here
+//by overriding a method in the parent class.
+class Sword extends Tools {
+  @override
+  breakBlock() {
+    print(name + " is breaking block.");
+    this.health -= 2;
+  }
+  
+  Sword(String name, int health) : super(name, health);
+}
+
+
+//Abstraction is demonstrated 
+//since we can use methods without learning 
+//the specifics.
+void main() {
+  Pickaxe paxe1 = new Pickaxe("Diamond pickaxe", 18);
+  paxe1.hitEnemy(); 
+  paxe1.isBroken();
+  print("");
+  
+  Sword woosh = new Sword("Iron sword", 10);
+  woosh.breakBlock();
+  woosh.isBroken();
+
+}
+
